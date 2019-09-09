@@ -1,6 +1,6 @@
 # react-data-attributes-button
 
-> react button component with data-attribute
+> react button component with data attributes
 
 [![NPM](https://img.shields.io/npm/v/react-data-attributes-button.svg)](https://www.npmjs.com/package/react-data-attributes-button) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
