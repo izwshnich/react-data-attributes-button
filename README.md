@@ -1,6 +1,6 @@
 # react-data-attributes-button
 
-> button component having data-attribute
+> react button component with data-attribute
 
 [![NPM](https://img.shields.io/npm/v/react-data-attributes-button.svg)](https://www.npmjs.com/package/react-data-attributes-button) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -13,17 +13,27 @@ npm install --save react-data-attributes-button
 ## Usage
 
 ```tsx
-import * as React from 'react'
+import React, { useState } from 'react'
+import DataAttrButton from 'react-data-attributes-button'
 
-import MyComponent from 'react-data-attributes-button'
+const App = () => {
+  const [isActive, setIsActive] = useState(false)
+  const handleClick = e => {
+    const active = JSON.parse(e.target.dataset.active)
 
-class Example extends React.Component {
-  render () {
-    return (
-      <MyComponent />
-    )
+    setIsActive(!active)
   }
+
+  return (
+    <div>
+      <DataAttrButton data={{ 'data-active': isActive }} handler={handleClick}>
+        {isActive ? 'ACTIVE' : 'INACTIVE'}
+      </DataAttrButton>
+    </div>
+  )
 }
+
+export default App
 ```
 
 ## License

@@ -1,13 +1,22 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
-import ExampleComponent from 'react-data-attributes-button'
+import DataAttrButton from 'react-data-attributes-button'
 
-export default class App extends Component {
-  render () {
-    return (
-      <div>
-        <ExampleComponent text='Modern React component module' />
-      </div>
-    )
+const App = () => {
+  const [isActive, setIsActive] = useState(false)
+  const handleClick = e => {
+    const active = JSON.parse(e.target.dataset.active)
+
+    setIsActive(!active)
   }
+
+  return (
+    <div>
+      <DataAttrButton data={{ 'data-active': isActive }} handler={handleClick}>
+        {isActive ? 'ACTIVE' : 'INACTIVE'}
+      </DataAttrButton>
+    </div>
+  )
 }
+
+export default App
